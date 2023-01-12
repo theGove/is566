@@ -1,0 +1,21 @@
+-- USER SQL
+CREATE USER STUDENT IDENTIFIED BY Temporary_Password_1234;
+
+-- ADD ROLES
+GRANT CONNECT TO STUDENT;
+GRANT RESOURCE TO STUDENT;
+ALTER USER STUDENT DEFAULT ROLE CONNECT,RESOURCE;
+
+-- ENABLE REST
+BEGIN
+    ORDS.ENABLE_SCHEMA(
+        p_enabled => TRUE,
+        p_schema => 'STUDENT',
+        p_url_mapping_type => 'BASE_PATH',
+        p_url_mapping_pattern => 'student',
+        p_auto_rest_auth=> TRUE
+    );
+    commit;
+END;
+/
+
