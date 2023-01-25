@@ -20,7 +20,7 @@ with salesummary as(
 )
 , running as(
   select salesummary.*
-         ,round(avg(amount) over(order by saledate rows between 1 preceding and current row),2) as average_tsd
+         ,round(avg(amount) over(order by saledate rows between 7 preceding and current row),2) as average_tsd
 
   from salesummary
 
