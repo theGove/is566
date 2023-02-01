@@ -1,0 +1,14 @@
+Table Structure:
+    Product ((group), product_id)
+    customer (customer_id)
+    sale ((customer_id),sale_id)
+
+select * from product
+select *  from product where unit = '4 oz'
+select *  from product where "group" in ('Spa','Essential Oils')
+select *  from product where wholesale>100 and wholesale < 200 and retail > 200
+select *  from product where "group" = 'Spa' order by product_id
+select *  from customer where first_name='Bobby'
+select balance, last_name, address.zip  from customer 
+select balance, last_name, address.zip  from customer where address.city='Atlanta'
+
